@@ -84,6 +84,7 @@ void op_aa_OR(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2)
 void op_ab_XOR(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2);
 void op_ac_SHL(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2);
 void op_ad_SHR(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2);
+void op_ae_ADDI(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2);
 
 //-- Run Once ----------------------------------------
 #endif

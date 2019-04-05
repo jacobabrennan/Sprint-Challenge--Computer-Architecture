@@ -78,6 +78,7 @@ void load_operations()
         operations_alu[0xb] = op_ab_XOR;
         operations_alu[0xc] = op_ac_SHL;
         operations_alu[0xd] = op_ad_SHR;
+        operations_alu[0xe] = op_ae_ADDI;
     }
 }
 
@@ -392,4 +393,10 @@ void op_ac_SHL(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2
 void op_ad_SHR(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2)
 {
     cpu->registers[operand_1] = BYTE & (cpu->registers[operand_1] >> cpu->registers[operand_2]);
+}
+
+//-- ADDI: Add immediate value to register A ---------
+void op_ae_ADDI(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2)
+{
+    cpu->registers[operand_1] = BYTE & (cpu->registers[operand_1] + operand_2);
 }
