@@ -19,6 +19,9 @@ int handle_error(int error_code)
 {
     switch(error_code)
     {
+        case ERROR_UNKNOWN_INSTRUCTION:
+            printf("CPU encountered unknown instruction\n");
+            break;
         case ERROR_USAGE_ARGUMENTS:
             printf("Usage: ls8 FilePath\n");
             break;
@@ -30,6 +33,7 @@ int handle_error(int error_code)
             break;
         case ERROR_CPU_RUNNING:
             printf("An attempt was made to boot the CPU while already running.\n");
+            break;
     }
     return error_code;
 }
@@ -72,5 +76,6 @@ int main(int argc, char *argv[])
     int error_code = cpu_run(&cpu);
     // Cleanup and Exit
     tcsetattr(0, TCSANOW, &termios_sane);
-    return handle_error(error_code);
+    handle_error(error_code);
+    return error_code;
 }

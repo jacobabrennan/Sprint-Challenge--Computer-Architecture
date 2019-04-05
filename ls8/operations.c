@@ -54,7 +54,7 @@ void load_operations()
         operations_cpu_jump[0x3] = op_13_IRET;
         operations_cpu_jump[0x4] = op_54_JMP;
         operations_cpu_jump[0x5] = op_55_JEQ;
-        // operations_cpu_jump[0x6] = op_56_JNE;
+        operations_cpu_jump[0x6] = op_56_JNE;
         operations_cpu_jump[0x7] = op_57_JGT;
         operations_cpu_jump[0x8] = op_58_JLT;
         // operations_cpu_jump[0x9] = op_59_JLE;
@@ -200,7 +200,18 @@ void op_55_JEQ(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2
 }
 
 //-- JNE: Jump to register value, if not equal -------
-// operations[0x56] = op_56_JNE;
+void op_56_JNE(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2)
+{
+    (void)(operand_2);
+    if(!(cpu->FL & CMP_FLAG_EQUAL))
+    {
+        cpu->PC = cpu->registers[operand_1];
+    }
+    else
+    {
+        cpu->PC += 2;
+    }
+}
 
 //-- JGT: Jump to register value, if greater than ----
 void op_57_JGT(struct cpu *cpu, unsigned char operand_1, unsigned char operand_2)

@@ -76,6 +76,8 @@ int cpu_run(struct cpu *cpu)
         unsigned char operand_2 = cpu->MDR;
         // Determine operand count
         unsigned char count_operand = cpu->IR >> 6;
+        // Print Diagnostics
+        // printf("\r%x %x,%x\n", cpu->IR, operand_1, operand_2);
         // Handle ALU instructions
         if(cpu->IR & INSTRUCTION_ALU)
         {
