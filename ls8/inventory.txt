@@ -1,0 +1,16 @@
+This is an inventory of all files included in this directory and any subdirectories, as per Step 0 of the requirements.
+
+cpu.c: Contains the implementation of a CPU which we will write.
+cpu.h: Header file for file cpu.c.
+inventory.txt: This file.
+ls8.c: Provides the main function which will be invoked when testing our cpu.
+Makefile: Outlines the instructions for compiling ls8.c into an executable.
+README.md: Contains the instructions for completing this school project.
+examples: Directory holding programs written in the ls8 language, including:
+    call.ls8
+    interrupts.ls8
+    keyboard.ls8
+    mult.ls8
+    print8.ls8
+    stack.ls8
+    stackoverflow.ls8
